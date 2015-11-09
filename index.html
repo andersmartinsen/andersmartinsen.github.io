@@ -29,10 +29,12 @@ var method = 'POST';
 var xhr = createCORSRequest(method, url);
 
 xhr.onload = function() {
-  // Success code goes here.
+  alert('jipp');// Success code goes here.
 };
 
 xhr.onerror = function() {
+  alert('fail');
+
   // Error code goes here.
 };
 
