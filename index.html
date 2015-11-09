@@ -48,7 +48,10 @@ xhr.onerror = function() {
   // Error code goes here.
 };
 
-xhr.send();
+var data = new FormData();
+data.append('svar');
+
+xhr.send(data);
 }
 </script>
 
