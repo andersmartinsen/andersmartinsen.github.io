@@ -8,10 +8,10 @@
 
 <form>
 
-Svar:<br>
-<input type="text" name="svar">
+  Svar:<br>
+  <input type="text" name="svar" id="svar">
 
-<button type="button" onclick="sjekkSvar()">Send svar</button>
+  <button type="button" onclick="sjekkSvar()">Send svar</button>
 
 
 </form>
@@ -44,14 +44,12 @@ xhr.onload = function() {
 
 xhr.onerror = function() {
   alert('fail');
-
   // Error code goes here.
 };
 
-var data = new FormData();
-data.append('svar', 'test');
+var formData = new FormData( document.getElementById("svar") );
+xhr.send(formData);
 
-xhr.send(data);
 }
 </script>
 
