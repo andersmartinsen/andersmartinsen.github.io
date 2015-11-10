@@ -32,40 +32,19 @@ public static void main(String[] args) {
 
 <script>
 function sjekkSvar() {
- var createCORSRequest = function(method, url) {
-  var xhr = new XMLHttpRequest();
-  if ("withCredentials" in xhr) {
-    // Most browsers.
-    xhr.open(method, url, true);
-  } else if (typeof XDomainRequest != "undefined") {
-    // IE8 & IE9
-    xhr = new XDomainRequest();
-    xhr.open(method, url);
-  } else {
-    // CORS not supported.
-    xhr = null;
+ var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      alert('' + xhttp.responseText);
+    }
   }
-  return xhr;
-};
 
-var url = 'https://faggruppevalg.herokuapp.com/fasit';
-var method = 'POST';
-var xhr = createCORSRequest(method, url);
-
-xhr.onload = function(response) {
-  alert('' + response.responseText);
-};
-
-xhr.onerror = function() {
-  alert('fail');
-  // Error code goes here.
-};
-
-xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-var svar = document.getElementById("svar");
-xhr.send(svar.name + "=" + svar.value);
-
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  var svar = document.getElementById("svar");
+  xhttp.open("POST", "https://faggruppevalg.herokuapp.com/fasit", true);
+  xhttp.send(svar.name + "=" + svar.value);
 }
+
 </script>
 
 </body>
