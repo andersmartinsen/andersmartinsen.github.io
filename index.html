@@ -49,8 +49,8 @@ xhr.onerror = function() {
 
 xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 var svar = document.getElementById("svar");
-alert(svar.name);
-xhr.send("svar=" + svar.name);
+alert(svar.value);
+xhr.send(svar.name + "=" + svar.value);
 
 }
 </script>
