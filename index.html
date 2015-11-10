@@ -35,7 +35,7 @@ function sjekkSvar() {
  var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (xhttp.readyState == 4 && xhttp.status == 200) {
-      alert('' + xhttp.responseText);
+      hentVideo(xhttp.responseText);
     }
   }
 
@@ -46,12 +46,11 @@ function sjekkSvar() {
 }
 
 function hentVideo(svar) {
+  var xhttp = new XMLHttpRequest();
   if (svar === "riktig") {
-    var xhttp = new XMLHttpRequest();
     xhttp.open("GET", "https://faggruppevalg.herokuapp.com/riktig", true);
     xhttp.send();
   } else {
-    var xhttp = new XMLHttpRequest();
     xhttp.open("GET", "https://faggruppevalg.herokuapp.com/feil", true);
     xhttp.send();
   }
