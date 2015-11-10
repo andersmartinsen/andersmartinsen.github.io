@@ -45,6 +45,18 @@ function sjekkSvar() {
   xhttp.send(svar.name + "=" + svar.value);
 }
 
+function hentVideo(svar) {
+  if (svar === "riktig") {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "https://faggruppevalg.herokuapp.com/riktig", true);
+    xhttp.send();
+  } else {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "https://faggruppevalg.herokuapp.com/feil", true);
+    xhttp.send();
+  }
+}
+
 </script>
 
 </body>
