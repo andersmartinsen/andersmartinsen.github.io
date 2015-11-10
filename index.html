@@ -53,7 +53,7 @@ var method = 'POST';
 var xhr = createCORSRequest(method, url);
 
 xhr.onload = function(response) {
-  alert('' + response);
+  alert('' + response.responseText);
 };
 
 xhr.onerror = function() {
