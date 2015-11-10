@@ -39,9 +39,9 @@ function sjekkSvar() {
     }
   }
 
-  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   var svar = document.getElementById("svar");
   xhttp.open("POST", "https://faggruppevalg.herokuapp.com/fasit", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send(svar.name + "=" + svar.value);
 }
 
