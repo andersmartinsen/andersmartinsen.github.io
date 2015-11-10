@@ -52,8 +52,8 @@ var url = 'https://faggruppevalg.herokuapp.com/fasit';
 var method = 'POST';
 var xhr = createCORSRequest(method, url);
 
-xhr.onload = function() {
-  alert('jipp');// Success code goes here.
+xhr.onload = function(response) {
+  alert('' + response);
 };
 
 xhr.onerror = function() {
