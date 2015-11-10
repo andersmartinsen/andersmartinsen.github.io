@@ -48,9 +48,9 @@ xhr.onerror = function() {
 };
 
 xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-var formData = new FormData( document.getElementById("svar") );
-alert(formData);
-xhr.send(formData);
+var svar = document.getElementById("svar");
+alert(svar);
+xhr.send("svar=" + svar);
 
 }
 </script>
