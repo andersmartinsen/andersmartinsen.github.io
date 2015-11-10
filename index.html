@@ -51,6 +51,7 @@ function hentVideo(svar) {
   xhttp.onreadystatechange = function() {
     if (xhttp.readyState == 4 && xhttp.status == 200) {
       console.log('ajax ferdig');
+      alert('xhttp.responseText')
       visVideo(xhttp.responseText);
     }
   }
@@ -67,7 +68,7 @@ function hentVideo(svar) {
 
 function visVideo(svar) {
   console.log('Viser video');
-  document.getElementById("demo").innerHTML = svar.responseText;
+ // document.getElementById("demo").innerHTML = svar.responseText;
 }
 
 </script>
