@@ -47,6 +47,11 @@ function sjekkSvar() {
 
 function hentVideo(svar) {
   var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      visVideo(xhttp.responseText);
+    }
+  }
   if (svar === "riktig") {
     xhttp.open("GET", "https://faggruppevalg.herokuapp.com/video/riktig", true);
     xhttp.send();
@@ -54,6 +59,10 @@ function hentVideo(svar) {
     xhttp.open("GET", "https://faggruppevalg.herokuapp.com/video/feil", true);
     xhttp.send();
   }
+}
+
+function visVideo(svar) {
+  document.getElementById("demo").innerHTML = svar.responseText;
 }
 
 </script>
