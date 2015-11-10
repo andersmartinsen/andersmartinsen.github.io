@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<head><title>test</title></head>
 <body>
 
 <div id="demo"><h2>Faggruppevalg Bekk 2016</h2>
@@ -45,16 +46,20 @@ function sjekkSvar() {
 }
 
 function hentVideo(svar) {
+  console.log('henter video');
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (xhttp.readyState == 4 && xhttp.status == 200) {
+      console.log('ajax ferdig');
       visVideo(xhttp.responseText);
     }
   }
   if (svar === "riktig") {
+    console.log('riktig svar');
     xhttp.open("GET", "https://faggruppevalg.herokuapp.com/video/riktig", true);
     xhttp.send();
   } else {
+    console.log('feil svar');
     xhttp.open("GET", "https://faggruppevalg.herokuapp.com/video/feil", true);
     xhttp.send();
   }
