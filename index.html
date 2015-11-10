@@ -35,7 +35,7 @@ function sjekkSvar() {
  var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (xhttp.readyState == 4 && xhttp.status == 200) {
-      hentVideo(xhttp.responseText);
+      skiftSide(xhttp.responseText);
     }
   }
 
@@ -45,30 +45,14 @@ function sjekkSvar() {
   xhttp.send(svar.name + "=" + svar.value);
 }
 
-function hentVideo(svar) {
-  console.log('henter video');
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (xhttp.readyState == 4 && xhttp.status == 200) {
-      console.log('ajax ferdig');
-      alert('xhttp.responseText')
-      visVideo(xhttp.responseText);
-    }
-  }
+function skiftSide(svar) {
   if (svar === "riktig") {
     console.log('riktig svar');
-    xhttp.open("GET", "https://faggruppevalg.herokuapp.com/video/riktig", true);
-    xhttp.send();
+    window.location.replace("riktig.html");
   } else {
     console.log('feil svar');
-    xhttp.open("GET", "https://faggruppevalg.herokuapp.com/video/feil", true);
-    xhttp.send();
+    window.location.replace("feil.html");
   }
-}
-
-function visVideo(svar) {
-  console.log('Viser video');
- // document.getElementById("demo").innerHTML = svar.responseText;
 }
 
 </script>
